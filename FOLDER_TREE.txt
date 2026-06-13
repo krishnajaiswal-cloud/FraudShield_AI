@@ -1,0 +1,223 @@
+FraudShield-AI/
+│
+├── 📁 frontend/                                    # Next.js React Frontend Application
+│   ├── 📁 public/                                 # Static assets (images, icons)
+│   │   ├── 📁 assets/                             # Images, logos, media files
+│   │   └── 📁 icons/                              # SVG icons, favicon
+│   │
+│   ├── 📁 src/                                    # Frontend source code
+│   │   ├── 📁 app/                                # Next.js 14 App Router (file-based routing)
+│   │   │   ├── layout.tsx                         # Root layout wrapper
+│   │   │   ├── page.tsx                           # Home page
+│   │   │   ├── 📁 api/                            # Next.js API routes (optional)
+│   │   │   ├── 📁 dashboard/                      # Dashboard feature page
+│   │   │   ├── 📁 analysis/                       # Analysis upload/results page
+│   │   │   ├── 📁 reports/                        # Reports viewing page
+│   │   │   └── 📁 settings/                       # Settings/preferences page
+│   │   │
+│   │   ├── 📁 components/                         # Reusable React components
+│   │   │   ├── 📁 common/                         # Shared components
+│   │   │   │   ├── Header.tsx                     # Navigation header
+│   │   │   │   ├── Sidebar.tsx                    # Sidebar navigation
+│   │   │   │   ├── Footer.tsx                     # Footer component
+│   │   │   │   ├── Button.tsx                     # Reusable button
+│   │   │   │   ├── Modal.tsx                      # Modal dialog
+│   │   │   │   ├── Card.tsx                       # Card container
+│   │   │   │   ├── Loading.tsx                    # Loading spinner
+│   │   │   │   └── Alert.tsx                      # Alert/notification
+│   │   │   ├── 📁 dashboard/                      # Dashboard components
+│   │   │   │   ├── StatCard.tsx                   # Stat card widget
+│   │   │   │   ├── Chart.tsx                      # Chart visualization
+│   │   │   │   ├── RecentActivity.tsx             # Activity list
+│   │   │   │   └── RiskMetrics.tsx                # Risk metrics display
+│   │   │   ├── 📁 analysis/                       # Analysis feature components
+│   │   │   │   ├── FileUploader.tsx               # APK upload component
+│   │   │   │   ├── AnalysisResult.tsx             # Results display
+│   │   │   │   ├── RiskIndicator.tsx              # Risk level indicator
+│   │   │   │   └── PermissionsList.tsx            # Permissions viewer
+│   │   │   └── 📁 reports/                        # Reports feature components
+│   │   │       ├── ReportViewer.tsx               # Report display
+│   │   │       ├── ExportOptions.tsx              # Export functionality
+│   │   │       └── ReportList.tsx                 # Reports list view
+│   │   │
+│   │   ├── 📁 hooks/                              # Custom React hooks
+│   │   │   ├── useAnalysis.ts                     # Analysis logic hook
+│   │   │   ├── useAuth.ts                         # Authentication hook
+│   │   │   ├── useFetch.ts                        # Data fetching hook
+│   │   │   ├── useLocalStorage.ts                 # LocalStorage hook
+│   │   │   ├── useNotification.ts                 # Notification hook
+│   │   │   └── useDebounce.ts                     # Debounce hook
+│   │   │
+│   │   ├── 📁 lib/                                # Utility functions and clients
+│   │   │   ├── 📁 api/                            # API client functions
+│   │   │   │   ├── client.ts                      # Axios/Fetch configuration
+│   │   │   │   ├── analysis.ts                    # Analysis API calls
+│   │   │   │   ├── reports.ts                     # Reports API calls
+│   │   │   │   └── auth.ts                        # Authentication API calls
+│   │   │   └── 📁 utils/                          # Helper functions
+│   │   │       ├── validators.ts                  # Form validation
+│   │   │       ├── formatters.ts                  # Data formatting
+│   │   │       ├── constants.ts                   # App constants
+│   │   │       ├── helpers.ts                     # General helpers
+│   │   │       └── date.ts                        # Date utilities
+│   │   │
+│   │   ├── 📁 contexts/                           # React Context API
+│   │   │   ├── AuthContext.tsx                    # Authentication state
+│   │   │   ├── ThemeContext.tsx                   # Theme state (light/dark)
+│   │   │   └── NotificationContext.tsx            # Notifications state
+│   │   │
+│   │   ├── 📁 types/                              # TypeScript type definitions
+│   │   │   ├── api.ts                             # API response types
+│   │   │   ├── analysis.ts                        # Analysis types
+│   │   │   ├── user.ts                            # User types
+│   │   │   ├── common.ts                          # Common types
+│   │   │   └── index.ts                           # Barrel exports
+│   │   │
+│   │   └── 📁 styles/                             # Global styles
+│   │       ├── globals.css                        # Global Tailwind styles
+│   │       ├── variables.css                      # CSS variables
+│   │       └── animations.css                     # Custom animations
+│   │
+│   ├── 📄 next.config.js                          # Next.js configuration
+│   ├── 📄 tsconfig.json                           # TypeScript configuration
+│   ├── 📄 tailwind.config.js                      # Tailwind CSS config
+│   ├── 📄 postcss.config.js                       # PostCSS plugins config
+│   ├── 📄 package.json                            # Dependencies & scripts
+│   ├── 📄 .env.example                            # Environment template
+│   ├── 📄 Dockerfile                              # Docker image config
+│   └── 📄 README.md                               # Frontend documentation
+│
+├── 📁 backend/                                     # FastAPI Python Backend
+│   ├── 📁 app/                                    # Main application package
+│   │   ├── 📄 main.py                             # FastAPI app entry point
+│   │   ├── 📄 __init__.py                         # Package initializer
+│   │   │
+│   │   ├── 📁 api/                                # API Routes (RESTful endpoints)
+│   │   │   ├── 📄 __init__.py
+│   │   │   └── 📁 v1/                             # API v1 namespace
+│   │   │       ├── 📄 __init__.py                 # Router setup
+│   │   │       └── 📁 endpoints/                  # Endpoint handlers
+│   │   │           ├── 📄 __init__.py
+│   │   │           ├── 📄 analysis.py             # POST /api/v1/analysis routes
+│   │   │           ├── 📄 reports.py              # GET /api/v1/reports routes
+│   │   │           ├── 📄 apk.py                  # POST /api/v1/apk routes
+│   │   │           ├── 📄 auth.py                 # POST /api/v1/auth routes
+│   │   │           └── 📄 health.py               # GET /api/v1/health
+│   │   │
+│   │   ├── 📁 core/                               # Core application configuration
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 config.py                       # Settings & env variables
+│   │   │   ├── 📄 security.py                     # JWT & password hashing
+│   │   │   ├── 📄 dependencies.py                 # FastAPI dependencies
+│   │   │   └── 📄 exceptions.py                   # Custom exceptions
+│   │   │
+│   │   ├── 📁 models/                             # SQLAlchemy ORM Models
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 base.py                         # BaseModel class
+│   │   │   ├── 📄 analysis.py                     # Analysis records model
+│   │   │   ├── 📄 apk_file.py                     # APK file metadata model
+│   │   │   ├── 📄 report.py                       # Report records model
+│   │   │   ├── 📄 user.py                         # User accounts model
+│   │   │   └── 📄 risk_indicator.py               # Risk scores model
+│   │   │
+│   │   ├── 📁 schemas/                            # Pydantic validation schemas
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 analysis.py                     # Analysis request/response
+│   │   │   ├── 📄 apk.py                          # APK upload/response
+│   │   │   ├── 📄 report.py                       # Report schemas
+│   │   │   ├── 📄 user.py                         # User schemas
+│   │   │   └── 📄 common.py                       # Common response schemas
+│   │   │
+│   │   ├── 📁 services/                           # Business Logic Layer
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 analysis_service.py             # Analysis orchestration
+│   │   │   ├── 📄 apk_service.py                  # APK handling service
+│   │   │   ├── 📄 report_service.py               # Report generation service
+│   │   │   ├── 📄 auth_service.py                 # Authentication service
+│   │   │   ├── 📄 storage_service.py              # File storage service
+│   │   │   └── 📄 notification_service.py         # Notification service
+│   │   │
+│   │   ├── 📁 agents/                             # AI Agents (autonomous systems)
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 base_agent.py                   # Base agent abstract class
+│   │   │   │
+│   │   │   ├── 📁 apk_analyzer/                   # APK Analysis Agent
+│   │   │   │   ├── 📄 __init__.py
+│   │   │   │   ├── 📄 apk_agent.py                # Main APK analyzer (Androguard)
+│   │   │   │   ├── 📄 permissions.py              # Permission analysis
+│   │   │   │   ├── 📄 manifest.py                 # AndroidManifest analysis
+│   │   │   │   └── 📄 behavior.py                 # Behavior pattern detection
+│   │   │   │
+│   │   │   ├── 📁 rag/                            # RAG (Retrieval-Augmented Generation)
+│   │   │   │   ├── 📄 __init__.py
+│   │   │   │   ├── 📄 rag_agent.py                # RAG orchestrator
+│   │   │   │   ├── 📄 retriever.py                # Document retriever
+│   │   │   │   ├── 📄 indexer.py                  # Document indexer (ChromaDB)
+│   │   │   │   └── 📄 embeddings.py               # Embeddings generator (Transformers)
+│   │   │   │
+│   │   │   └── 📁 fraud_detector/                 # Fraud Detection Agent
+│   │   │       ├── 📄 __init__.py
+│   │   │       ├── 📄 detector.py                 # Main detector (OpenAI)
+│   │   │       ├── 📄 patterns.py                 # Pattern detection logic
+│   │   │       └── 📄 scoring.py                  # Risk scoring algorithm
+│   │   │
+│   │   ├── 📁 database/                           # Data Access Layer
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 base.py                         # Database session factory
+│   │   │   ├── 📄 session.py                      # Session management
+│   │   │   └── 📁 migrations/                     # Alembic migrations
+│   │   │       ├── 📁 versions/                   # Migration version files
+│   │   │       ├── 📄 alembic.ini                 # Alembic config
+│   │   │       ├── 📄 env.py                      # Migration environment
+│   │   │       └── 📄 script.py.mako              # Migration template
+│   │   │
+│   │   ├── 📁 utils/                              # Utility Functions
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 logger.py                       # Logging setup
+│   │   │   ├── 📄 validators.py                   # Input validators
+│   │   │   ├── 📄 formatters.py                   # Data formatters
+│   │   │   ├── 📄 file_handler.py                 # File operations
+│   │   │   ├── 📄 constants.py                    # Constants & enums
+│   │   │   └── 📁 analyzers/                      # Analysis utilities
+│   │   │       ├── 📄 __init__.py
+│   │   │       ├── 📄 risk_analyzer.py            # Risk analysis
+│   │   │       ├── 📄 pattern_detector.py         # Pattern detection
+│   │   │       └── 📄 stat_calculator.py          # Statistics calculation
+│   │   │
+│   │   └── 📁 storage/                            # File Storage Management
+│   │       ├── 📁 uploads/                        # Uploaded APK files
+│   │       ├── 📁 reports/                        # Generated PDF/JSON reports
+│   │       ├── 📁 chromadb/                       # ChromaDB vector store
+│   │       └── 📁 temp/                           # Temporary processing files
+│   │
+│   ├── 📁 tests/                                  # Test Suite
+│   │   ├── 📄 __init__.py
+│   │   ├── 📄 conftest.py                         # Pytest configuration
+│   │   ├── 📁 unit/                               # Unit tests
+│   │   │   ├── 📄 test_services.py                # Service tests
+│   │   │   ├── 📄 test_agents.py                  # Agent tests
+│   │   │   └── 📄 test_utils.py                   # Utility tests
+│   │   └── 📁 integration/                        # Integration tests
+│   │       ├── 📄 test_api.py                     # API endpoint tests
+│   │       ├── 📄 test_analysis_flow.py           # Workflow tests
+│   │       └── 📄 test_database.py                # Database tests
+│   │
+│   ├── 📄 main.py                                 # Entry point (symlink to app/main.py)
+│   ├── 📄 requirements.txt                        # Python dependencies
+│   ├── 📄 Dockerfile                              # Docker image configuration
+│   ├── 📄 .dockerignore                           # Docker ignore file
+│   └── 📄 README.md                               # Backend documentation
+│
+├── 📁 docs/                                        # Project Documentation
+│   ├── 📄 ARCHITECTURE.md                         # Folder structure explanation
+│   ├── 📄 API.md                                  # API endpoint documentation
+│   ├── 📄 SETUP.md                                # Setup & installation guide
+│   ├── 📄 DEPLOYMENT.md                           # Deployment instructions
+│   ├── 📄 DATABASE_SCHEMA.md                      # Database schema docs
+│   └── 📄 CONTRIBUTING.md                         # Contributing guidelines
+│
+├── 📄 .gitignore                                   # Git ignore rules
+├── 📄 .env.example                                # Environment variables template
+├── 📄 docker-compose.yml                          # Docker compose orchestration
+└── 📄 README.md                                   # Root project README
+
